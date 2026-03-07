@@ -5,7 +5,7 @@
  *     struct ListNode *next;
  * };
  */
-// list_size: リストの長さを取得する
+
 int list_size(struct ListNode *list)
 {
     int len;
@@ -85,12 +85,9 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
     int *l1_a = array(l1, l1_size);
     int l2_size = list_size(l2);
     int *l2_a = array(l2, l2_size);
-    int tmp;
     struct ListNode *result;
 
     result = list_sum(l1_a, l1_size, l2_a, l2_size);
-    if (result == NULL)
-		return (NULL);
     free(l1_a);
     free(l2_a);
     return (result);

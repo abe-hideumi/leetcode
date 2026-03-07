@@ -1,3 +1,8 @@
+// used配列に0をセット
+// (unsigned char)にキャストしてusedにflagを立てる
+// flagが立っていない場合はj++で進める
+// flagが立っていた場合、whileをぬけresult < (j - i)の時のみresultを更新
+// iは1文字ずつ追っていく
 int lengthOfLongestSubstring(char* s) {
     int             used[256];
     int             i;
