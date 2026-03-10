@@ -74,7 +74,7 @@ int romanToInt(char* s) {
             if (tmp != C)
                 i++;
         }
-        result = result + tmp;
+        result = result + (long long)tmp;
     }
-    return (result);
+    return ((int)result);
 }
