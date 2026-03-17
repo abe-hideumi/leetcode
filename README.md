@@ -27,6 +27,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0013-roman-to-integer](https://github.com/abe-hideumi/leetcode/tree/master/0013-roman-to-integer) |
 | [0014-longest-common-prefix](https://github.com/abe-hideumi/leetcode/tree/master/0014-longest-common-prefix) |
+| [0020-valid-parentheses](https://github.com/abe-hideumi/leetcode/tree/master/0020-valid-parentheses) |
 ## Array
 |  |
 | ------- |
@@ -41,4 +42,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/abe-hideumi/leetcode/tree/master/0026-remove-duplicates-from-sorted-array) |
+## Stack
+|  |
+| ------- |
+| [0020-valid-parentheses](https://github.com/abe-hideumi/leetcode/tree/master/0020-valid-parentheses) |
 <!---LeetCode Topics End-->
