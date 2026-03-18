@@ -1,70 +1,28 @@
-int *sort_nums(int *nums, int size)
-{
-    int i;
-    int j;
-    int tmp;
+double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {
+    int total = nums1Size + nums2Size;
+    int mid1 = (total - 1) / 2;
+    int mid2 = total / 2;
 
-    i = 0;
-    while (i < size - 1)
+    int n1 = 0, n2 = 0, val = 0;
+    int result1 = 0, result2 = 0;
+    for (int i = 0; i <= mid2; i++)
     {
-        j = i + 1;
-        while (j < size)
+        if (n1 < nums1Size && (n2 >= nums2Size || nums1[n1] < nums2[n2]))
         {
-            if (nums[i] > nums[j])
-            {
-                tmp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = tmp;
-            }
-            j++;
+            val = nums1[n1];
+            n1++;
         }
-        i++;
+        else if (n2 < nums2Size)
+        {
+            val = nums2[n2];
+            n2++;
+        }
+        if (i == mid1)
+            result1 = val;
+        if (i == mid2)
+            result2 = val;
     }
-    return (nums);
-}
-
-int *join_nums(int *nums1, int size_1, int *nums2, int size_2)
-{
-    int *join;
-    int i;
-    int j;
-
-    join = malloc(sizeof(int) * (size_1 + size_2));
-    if (join == NULL)
-        return (NULL);
-    i = 0;
-    while (i < size_1)
-    {
-        join[i] = nums1[i];
-        i++;
-    }
-    j = 0;
-    while (j < size_2)
-    {
-        join[i] = nums2[j];
-        i++;
-        j++;
-    }
-    return (join);
-}
-
-double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) 
-{
-    int     *total_nums;
-    int     t_size;
-    double  result;
-
-    total_nums = join_nums(nums1, nums1Size, nums2, nums2Size);
-    if (total_nums == NULL)
-        return (-1);
-    t_size = nums1Size + nums2Size;
-    total_nums = sort_nums(total_nums, t_size);
-    result = 0; 
-    if (t_size % 2 == 0)
-    {
-        result = (double)(total_nums[t_size / 2] + total_nums[(t_size / 2) - 1]) / 2;    
-    }
-    else
-        result = total_nums[t_size / 2];
-    return (result);   
+    printf("%d\n", result1);
+    printf("%d\n", result1);
+    return ((double)(result1 + result2) / 2);
 }
