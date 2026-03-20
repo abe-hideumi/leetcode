@@ -40,7 +40,7 @@ bool isValid(char* s)
     int stack[strlen(s)];
     int n;
 
-    n = 0;
+    n = -1;
 
     if (!is_open(s[0]))
         return (false);
@@ -48,13 +48,13 @@ bool isValid(char* s)
     {
         if (is_open(s[i]) == 1)
         {
-            stack[n] = s[i];
             n++;
+            stack[n] = s[i];
         }
-        else if (n != 0 && check_pair(stack[n - 1], s[i]) == 1)
+        else if (n >= 0 && check_pair(stack[n], s[i]) == 1)
         {
-            n--;
             stack[n] = 0;
+            n--;
         }
         else 
             return(false);
