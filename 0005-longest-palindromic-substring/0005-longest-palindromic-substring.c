@@ -17,7 +17,6 @@ char* longestPalindrome(char* s) {
             left--;
             right++;
         }
-        printf("%d : %d\n", max, start);
         left = i;
         right = i + 1;
         while (left >= 0 && s[right] != '\0' && s[left] == s[right])
@@ -30,7 +29,6 @@ char* longestPalindrome(char* s) {
             left--;
             right++;
         }
-        printf("%d : %d\n", max, start);
     }
     result = malloc(max + 1);
     strncpy(result, &s[start], max);
