@@ -1,8 +1,7 @@
 static int	count_digits(long n)
 {
-	int	len;
+	int	len = 0;
 
-	len = 0;
 	if (n <= 0)
 		len++;
 	while (n != 0)
@@ -13,43 +12,36 @@ static int	count_digits(long n)
 	return (len);
 }
 
-char	*my_itoa(int n)
+static int  my_pow(int base, int count)
 {
-	char	*result;
-	long	nbr;
-	int		len;
+    int result = 1;
 
-	nbr = (long)n;
-	len = count_digits(nbr);
-	result = malloc(sizeof(char) * (len + 1));
-	if (!result)
-		return (NULL);
-	result[len] = '\0';
-	if (nbr < 0)
-	{
-		result[0] = '-';
-		nbr = -nbr;
-	}
-	else if (nbr == 0)
-		result[0] = '0';
-	while (nbr > 0)
-	{
-		result[len - 1] = (nbr % 10) + '0';
-		nbr /= 10;
-		len--;
-	}
-	return (result);
+    while (count > 0)
+    {
+        result *=  base;
+        count--;
+    }
+    return (result);
 }
 
 bool isPalindrome(int x) {
-    char    *src = my_itoa(x);
-    int     len = strlen(src) - 1;
+    int len = count_digits(x);
+    int left;
+    int right = 1;
 
-    for (int i = 0; i <= len; i++)
+    if (x < 0)
+        return (false);
+    if (len == 1)
+        return (true);
+    left = my_pow(10, len - 1);
+    while (left > right)
     {
-        if (src[i] != src[len])
+        int l = (x / left) % 10;
+        int r = (x / right) % 10;
+        if (l != r)
             return (false);
-        len--;
+        left /= 10;
+        right *= 10;
     }
     return (true);
 }
