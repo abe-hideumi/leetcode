@@ -6,16 +6,8 @@
  * };
  */
 
-void swap(int *a, int *b)
-{
-    int t = *a;
-
-    *a = *b;
-    *b = t;
-}
-
 struct ListNode* reverseKGroup(struct ListNode* head, int k) {
-    if (head == NULL || k == 1)
+    if (k == 1)
         return (head);
 
     struct ListNode *cur = head;
@@ -40,7 +32,9 @@ struct ListNode* reverseKGroup(struct ListNode* head, int k) {
             cur = cur->next;
         for (int i = 1; i <= k_size; i++)
         {
-            swap(hv[k_size - i], &cur->val);
+            int t = *hv[k_size - i];
+            *hv[k_size - i] = cur->val;
+            cur->val = t;
             cur = cur->next;
         }
     }
