@@ -10,7 +10,8 @@ function groupAnagrams(strs: string[]): string[][] {
         // "eat".split("") → ["e","a","t"].sort() → ["a","e","t"].join("") → "aet"
         const key: string = s.split("").sort().join("");
 
-        // get の結果を変数に入れて if で確認すると、string[]かundefinedになるので ? が不要になる
+        // get の結果は string[] | undefined。変数に入れて if で確認すると、
+        // if の中では string[] に絞り込まれるので ? が不要になる
         const group = groups.get(key);
         if (group)
             // 登録済みのキー → 既存のグループの末尾に元の文字列を追加
